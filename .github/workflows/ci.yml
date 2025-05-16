@@ -28,8 +28,6 @@ jobs:
 
       - name: Ejecutar pruebas con cobertura
         run: npm run test:coverage
-        env:
-          CHROME_BIN: /usr/bin/google-chrome
 
       - name: Compilar para producción
         run: npm run build -- --configuration=production
