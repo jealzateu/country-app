@@ -63,6 +63,25 @@ ng test --watch=false --code-coverage
 ng build --configuration=production
 ```
 
+## Architectural Decisions
+**Modular Structure:**
+
+- **_core/:_** Singleton services, interceptors, and modules imported once application-wide.
+
+- **_shared/:_** Reusable components, pipes, and directives used across different features.
+
+- **_features/:_** Domain-specific modules, such as countries, grouping all related functionality.
+
+- **_Angular Signals:_** Used for reactive state management in services, for example in FavoritesService.
+
+- **_Change Detection Strategy:_** Use of OnPush strategy in components to optimize performance and minimize unnecessary renders.
+
+- **_Routing:_** Implementation of lazy loading to improve load times by loading feature modules only when needed.
+
+- **_Folder Organization:_** Clear separation of concerns to facilitate project scalability and maintainability.
+
+- **_Pipes and Directives:_** Custom pipes like region-name and truncate for data formatting, and directives such as autofocus for DOM behavior enhancement, promoting reusable and clean templates.
+
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
