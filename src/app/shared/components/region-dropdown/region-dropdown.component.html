@@ -1,0 +1,10 @@
+<label for="region-select" class="visually-hidden">Filtrar por región</label>
+<select
+  id="region-select"
+  [value]="selectedRegion || ''"
+  (change)="onRegionChange($event)"
+  aria-label="Filtrar por región"
+>
+  <option value="">Todas las regiones</option>
+  <option *ngFor="let region of regions" [value]="region">{{ region }}</option>
+</select>

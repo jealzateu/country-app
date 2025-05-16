@@ -1,0 +1,14 @@
+<button
+  (click)="toggleFavorite()"
+  [attr.aria-pressed]="isFavorite"
+  aria-label="Toggle favorite"
+  type="button"
+  class="favorite-toggle"
+>
+  <ng-container *ngIf="isFavorite; else notFav">
+    ❤️
+  </ng-container>
+  <ng-template #notFav>
+    🤍
+  </ng-template>
+</button>

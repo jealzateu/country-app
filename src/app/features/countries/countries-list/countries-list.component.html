@@ -1,0 +1,49 @@
+<div class="filters" role="search" aria-label="Country search">
+  <app-search-input
+    (searchChange)="onSearch($event)"
+    aria-label="Search countries"
+  ></app-search-input>
+  <button
+    type="button"
+    class="toggle-favorites-btn"
+    (click)="goToFavoritesDetails()"
+  >
+  Mostrar favoritos
+  </button>
+  <app-region-dropdown
+    (regionChange)="onRegionChange($event)"
+    aria-label="Select region"
+  ></app-region-dropdown>
+</div>
+
+<div>
+  <p-virtualscroller
+    [items]="filteredCountries()"
+    [itemSize]="50"
+    scrollHeight="500px"
+    styleClass="border border-surface"
+    aria-label="Country list with virtual scroll"
+  >
+    <ng-template #item let-country let-options="options">
+      <ul aria-label="Country list with virtual scroll" style="list-style:none; margin:0; padding:0;">
+        <li
+          [ngClass]="{ 'bg-surface-100': options.odd }"
+          class="country-list-item"
+          [attr.aria-label]="'View details for ' + country.name.common"
+        >
+          <img
+            [src]="country.flags.png"
+            [alt]="'Flag of ' + country.name.common"
+            style="width: 55px; height: auto; margin-right: 1rem;"
+          />
+          <div>
+            <h2>{{ country.name.common }}</h2>
+            <button class="view-detail-btn" (click)="goToDetail(country.cca2)">Ver detalle</button>
+          </div>
+          <app-favorite-toggle [country]="country"></app-favorite-toggle>
+        </li>
+      </ul>
+    </ng-template>
+  </p-virtualscroller>
+
+</div>

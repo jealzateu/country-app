@@ -1,0 +1,165 @@
+@use '../../../../styles/variables' as *;
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+  align-items: center;
+  justify-content: space-between;
+
+  app-search-input,
+  app-region-dropdown {
+    flex: 1 1 200px;
+    max-width: 300px;
+  }
+}
+
+.country-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: $spacing-md;
+}
+
+.country-list-item {
+  height: 50px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+
+  @media (max-width: 600px) {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+}
+
+.country-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+  background-color: $bg-light;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: $spacing-md;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $bg-hover;
+    outline: 2px solid $focus-outline-color;
+    outline-offset: $focus-outline-offset;
+  }
+
+  img {
+    width: 48px;
+    height: auto;
+    flex-shrink: 0;
+    border-radius: 4px;
+  }
+
+  h2 {
+    font-size: $font-size-md;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  p {
+    margin: 0.25rem 0 0;
+    font-size: $font-size-sm;
+    color: $text-muted;
+  }
+
+  app-favorite-toggle {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+}
+
+.toggle-favorites-btn {
+  background-color: $focus-outline-color;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  color: white;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($focus-outline-color, 10%);
+  }
+
+  &:focus {
+    outline: 2px solid lighten($focus-outline-color, 20%);
+    outline-offset: 2px;
+  }
+}
+
+
+.view-detail-btn {
+  background-color: $focus-outline-color;
+  color: #fff;
+  border: none;
+  padding: 0.1rem 0.2rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $focus-outline-color;
+  }
+
+  &:focus {
+    outline: 2px solid $focus-outline-color;
+    outline-offset: 2px;
+  }
+}
+
+.p-virtualscroller {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: $spacing-sm;
+    box-sizing: border-box;
+  }
+
+  .bg-surface-100 {
+    background-color: $bg-surface-light;
+  }
+}
+
+@media (max-width: 600px) {
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .country-card {
+    flex-direction: column;
+    align-items: flex-start;
+
+    img {
+      margin-bottom: $spacing-sm;
+    }
+
+    app-favorite-toggle {
+      align-self: flex-end;
+    }
+  }
+}

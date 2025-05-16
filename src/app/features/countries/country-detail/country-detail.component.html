@@ -1,0 +1,45 @@
+<button class="back-button" (click)="goBack()">Volver a la lista</button>
+
+<ng-container *ngIf="countries?.length; else singleView">
+  <div *ngFor="let c of countries">
+    <section class="country-detail" aria-labelledby="countryName">
+      <img
+        [src]="c.flags.png"
+        [alt]="'Flag of ' + c.name.common"
+        class="country-flag"
+      />
+      <div class="country-info">
+        <h1 id="countryName">{{ c.name.common }}</h1>
+        <p><strong>Official name:</strong> {{ c.name.official | truncate:30 }}</p>
+        <p><strong>Capital:</strong> {{ c.capital || 'N/A' }}</p>
+        <p><strong>Region:</strong> {{ c.region | regionName }}</p>
+        <p><strong>Subregion:</strong> {{ c.subregion }}</p>
+        <p><strong>Population:</strong> {{ c.population | number }}</p>
+      </div>
+    </section>
+  </div>
+</ng-container>
+
+<ng-template #singleView>
+  <ng-container *ngIf="country; else loading">
+    <section class="country-detail" aria-labelledby="countryName">
+      <img
+        [src]="country.flags.png"
+        [alt]="'Flag of ' + country.name.common"
+        class="country-flag"
+      />
+      <div class="country-info">
+        <h1 id="countryName">{{ country.name.common }}</h1>
+        <p><strong>Official name:</strong> {{ country.name.official | truncate:30 }}</p>
+        <p><strong>Capital:</strong> {{ country.capital || 'N/A' }}</p>
+        <p><strong>Region:</strong> {{ country.region | regionName }}</p>
+        <p><strong>Subregion:</strong> {{ country.subregion }}</p>
+        <p><strong>Population:</strong> {{ country.population | number }}</p>
+      </div>
+    </section>
+  </ng-container>
+</ng-template>
+
+<ng-template #loading>
+  <p>Loading country details...</p>
+</ng-template>

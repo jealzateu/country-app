@@ -34,6 +34,11 @@
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": [],
             "server": "src/main.server.ts",
             "prerender": true,
@@ -100,8 +105,23 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "56081b48-5be4-4c09-bb54-7409a09b32a4",
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   }
 }

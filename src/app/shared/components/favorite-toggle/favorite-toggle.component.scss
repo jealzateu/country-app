@@ -1,0 +1,14 @@
+@use '../../../../styles/variables' as *;
+
+.favorite-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: $font-size-lg;
+  margin-left: 10px;
+
+  &:focus-visible {
+    outline: 2px solid $focus-outline-color;
+    outline-offset: $focus-outline-offset;
+  }
+}

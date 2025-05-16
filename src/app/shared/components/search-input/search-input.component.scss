@@ -1,0 +1,20 @@
+@use '../../../../styles/variables' as *;
+
+input {
+  width: 100%;
+  padding: $padding;
+  font-size: $font-size;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+
+  &:focus-visible {
+    outline: 2px solid $focus-outline-color;
+  }
+}
+
+label {
+  font-size: $font-size-xl;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}

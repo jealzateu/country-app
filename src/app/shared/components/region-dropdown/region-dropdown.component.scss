@@ -1,0 +1,33 @@
+@use '../../../../styles/variables' as *;
+
+label.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+select#region-select {
+  width: 100%;
+  max-width: 200px;
+  padding: 0.4rem 0.8rem;
+  font-size: $font-size-md;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+select#region-select:focus {
+  outline: none;
+  border-color: $focus-outline-color;
+  box-shadow: 0 0 5px rgba(63, 81, 181, 0.5);
+}

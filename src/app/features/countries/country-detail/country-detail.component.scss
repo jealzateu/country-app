@@ -1,0 +1,67 @@
+@use '../../../../styles/variables' as *;
+
+.country-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-lg;
+  margin-top: $spacing-lg;
+  align-items: flex-start;
+
+  .country-flag {
+    max-width: 300px;
+    width: 100%;
+    border-radius: $border-radius-lg;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .country-info {
+    flex: 1;
+    min-width: 250px;
+
+    h1 {
+      font-size: $font-size-xl;
+      margin-bottom: $spacing-md;
+    }
+
+    p {
+      margin: $spacing-sm 0;
+      font-size: $font-size-md;
+    }
+
+    strong {
+      color: $text-primary-dark;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .country-detail {
+    flex-direction: column;
+    align-items: center;
+
+    .country-info {
+      text-align: center;
+    }
+  }
+}
+
+.back-button {
+  background-color: $focus-outline-color;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  font-size: $font-size-md;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 20px;
+
+  &:hover {
+    background-color: $focus-outline-color;
+  }
+
+  &:focus {
+    outline: 2px solid $focus-outline-color;
+    outline-offset: 2px;
+  }
+}
