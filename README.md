@@ -12,19 +12,14 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+## Installation
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+If you have just cloned the repository, run:
 
 ```bash
-ng generate --help
+npm install
 ```
+to install all dependencies before starting the development server.
 
 ## Building
 
@@ -44,15 +39,29 @@ To execute unit tests with the [Karma](https://karma-runner.github.io) test runn
 ng test
 ```
 
+To execute unit tests with coverage report, run:
+
+```bash
+ng test --watch=false --code-coverage
+```
+
 ## Running end-to-end tests
 
 For end-to-end (e2e) testing, run:
 
 ```bash
-ng e2e
+npx cypress open
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Continuous Integration (CI) commands
+
+The following commands should be run as part of the CI pipeline:
+
+```bash
+ng lint
+ng test --watch=false --code-coverage
+ng build --configuration=production
+```
 
 ## Additional Resources
 
